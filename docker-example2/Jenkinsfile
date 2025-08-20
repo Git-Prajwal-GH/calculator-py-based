@@ -21,7 +21,7 @@ pipeline {
 
         stage("Push to Docker Hub") {
             steps {
-                withCredentials([usernamePassword('credentialsId':"dockerhub-cred",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
+                withCredentials([usernamePassword('credentialsId':"dockerhub_cred",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
                 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass} " // Login to Docker Hub
                 sh "docker image tag ${IMAGE_NAME}:latest ${env.dockerHubUser}/calculator-app:latest" // Tag the image
                 sh "docker push ${env.dockerHubUser}/calculator-app:latest" // Push the image
