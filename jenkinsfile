@@ -16,7 +16,7 @@ pipeline {
 
         stage("Run Container") {
             steps {
-                sh "docker run -d -p 5000:5000 --name calc-app calculator-app:latest"
+                sh "docker run -d -p 5100:5000 --name c1 calculator-app:latest"
             }
         }
     }
