@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage("Clone Repo") {
             steps {
-                git branch: 'main', url: 'https://github.com/yourname/calculator-app.git'
+                git branch: 'main', url: 'https://github.com/Git-Prajwal-GH/calculator-py-based.git'
             }
         }
 
