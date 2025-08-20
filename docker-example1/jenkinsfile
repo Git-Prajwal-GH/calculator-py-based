@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage("Clone Repo") {
+            steps {
+                git branch: 'main', url: 'https://github.com/Git-Prajwal-GH/calculator-py-based.git'
+            }
+        }
+
+        stage("Build Docker Image") {
+            steps {
+                sh "docker build -t calculator-app:latest ."
+            }
+        }
+
+        stage("Run Container") {
+            steps {
+                sh "docker run -d -p 5100:5000 --name calculator-app calculator-app:latest"
+            }
+        }
+    }
+}
