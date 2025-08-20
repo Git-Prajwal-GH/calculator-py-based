@@ -26,6 +26,7 @@ pipeline {
                 sh "docker image tag ${IMAGE_NAME}:latest ${env.dockerHubUser}/calculator-app:latest" // Tag the image
                 sh "docker push ${env.dockerHubUser}/calculator-app:latest" // Push the image
             }
+          }
         }
 
         stage("Deploy Container") {
@@ -33,6 +34,5 @@ pipeline {
                 sh "docker run -d -p 5000:5000 --name calc-app ${IMAGE_NAME}:latest"
             }
         }
-    }
- }
-}
+    } // End of stages
+} // End of pipeline
