@@ -24,7 +24,7 @@ pipeline {
                 usernameVariable: "dockerHubUser",
                 passwordVariable: "dockerHubPass")]) {
             sh '''
-                docker login -u "$dockerHubUser" -p "dockerHubPass"// --password-stdin
+                docker login -u "$dockerHubUser" --password-stdin
                 docker image tag ${IMAGE_NAME}:latest $dockerHubUser/${IMAGE_NAME}:latest
                 docker push $dockerHubUser/${IMAGE_NAME}:latest
             '''
